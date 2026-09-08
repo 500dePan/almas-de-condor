@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <title>Agrupación Folclórica</title>
+  <title>Almas de Cóndor</title>
   <style>
     body {
       margin: 0;
@@ -68,15 +68,52 @@
     }
     nav.site-nav a {
       color: #fff;
-      margin: 0 15px;
+      margin: 0 10px;
       text-decoration: none;
       font-weight: bold;
+      font-size: 0.92rem;
       white-space: nowrap;
     }
     nav.site-nav a:hover {
       text-decoration: underline;
     }
-    @media (max-width: 720px) {
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-toggle {
+      color: #fff;
+      margin: 0 10px;
+      font-weight: bold;
+      font-size: 0.92rem;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .dropdown-toggle i {
+      font-size: 0.75rem;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #a83232;
+      min-width: 180px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+      border-radius: 0 0 8px 8px;
+      z-index: 150;
+      flex-direction: column;
+      padding: 6px 0;
+    }
+    .dropdown-menu a {
+      display: block;
+      margin: 0 !important;
+      padding: 10px 16px;
+    }
+    .dropdown:hover .dropdown-menu {
+      display: flex;
+    }
+    @media (max-width: 980px) {
       .nav-toggle {
         display: block;
       }
@@ -95,6 +132,27 @@
       }
       .header-inner {
         flex-wrap: wrap;
+      }
+      .dropdown {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .dropdown-toggle {
+        margin: 10px 0 0;
+      }
+      .dropdown-menu {
+        display: flex;
+        position: static;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+        align-items: center;
+      }
+      .dropdown-menu a {
+        padding: 8px 0;
+        font-size: 0.95rem;
+        opacity: 0.9;
       }
     }
     .whatsapp-float {
@@ -258,6 +316,21 @@
     .plan-cta:hover {
       background: #1ea855;
     }
+    .unete-cta {
+      display: inline-block;
+      max-width: 280px;
+      margin-top: 0.5rem;
+      background: #a83232;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .unete-cta:hover {
+      background: #7a2424;
+    }
     .clientes-grid {
       display: flex;
       flex-wrap: wrap;
@@ -319,8 +392,13 @@
       <nav class="site-nav">
         <a href="#sobre">Sobre Nosotros</a>
         <a href="#elenco">Nuestros Bailarines</a>
-        <a href="#show">Nuestro Show</a>
-        <a href="#planes">Planes</a>
+        <div class="dropdown">
+          <span class="dropdown-toggle">Servicios <i class="fa-solid fa-caret-down"></i></span>
+          <div class="dropdown-menu">
+            <a href="#show">Shows / Servicios</a>
+            <a href="#planes">Planes</a>
+          </div>
+        </div>
         <a href="#videos">Presentaciones</a>
         <a href="#clientes">Clientes</a>
         <a href="#contacto">Contáctenos</a>
@@ -521,11 +599,36 @@ siteNav.querySelectorAll('a').forEach(link => {
 });
 </script>
 
+<section id="unete" class="unete" style="text-align:center;">
+  <h2>Baila con Nosotros</h2>
+  <p style="max-width:700px; margin:0 auto 2rem;">
+    ¿Te gusta el folclor y quieres ser parte de nuestra agrupación? Súmate a Almas de Cóndor y vive la experiencia de bailar, aprender y compartir nuestras tradiciones.
+  </p>
+  <div class="show-grid">
+    <div class="show-item">
+      <i class="fa-solid fa-heart"></i>
+      <h3>Sé Parte de la Familia</h3>
+      <p>Forma parte de un grupo unido por la pasión del folclor</p>
+    </div>
+    <div class="show-item">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <h3>Aprende y Perfecciona</h3>
+      <p>Aprende cueca y otros bailes tradicionales junto a nosotros</p>
+    </div>
+    <div class="show-item">
+      <i class="fa-solid fa-star"></i>
+      <h3>Vive el Escenario</h3>
+      <p>Participa en presentaciones, festivales y eventos</p>
+    </div>
+  </div>
+  <a class="unete-cta" href="https://wa.me/56922309218?text=Hola%2C%20me%20gustar%C3%ADa%20unirme%20a%20bailar%20con%20Almas%20de%20C%C3%B3ndor" target="_blank">Quiero Bailar con Ustedes</a>
+</section>
+
 
   <section id="show" class="show" style="text-align:center;">
-    <h2>Nuestro Show</h2>
+    <h2>Shows y Servicios</h2>
     <p style="max-width:700px; margin:0 auto 2rem;">
-      Nuestro espectáculo contempla un cuadro de centro donde se desempeñan diferentes coreografías, además de instancias de baile con el público y cuecas con el público, para una experiencia participativa en cada evento.
+      Nuestro espectáculo contempla un cuadro de centro donde se desempeñan diferentes coreografías, además de instancias de baile con el público y cuecas con el público, para una experiencia participativa en cada evento. También dictamos clases de cueca.
     </p>
     <div class="show-grid">
       <div class="show-item">
@@ -542,6 +645,11 @@ siteNav.querySelectorAll('a').forEach(link => {
         <i class="fa-solid fa-music"></i>
         <h3>Cuecas con el Público</h3>
         <p>Cierre bailable junto a los invitados</p>
+      </div>
+      <div class="show-item">
+        <i class="fa-solid fa-shoe-prints"></i>
+        <h3>Clases de Cueca</h3>
+        <p>Aprende a bailar cueca con nosotros</p>
       </div>
     </div>
   </section>
