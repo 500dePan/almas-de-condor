@@ -3,7 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Agrupación Folclórica Almas de Cóndor: música, danza y vestuario folclórico para tus eventos. Contáctanos para contratarnos.">
+  <meta property="og:title" content="Almas de Cóndor - Agrupación Folclórica">
+  <meta property="og:description" content="Preservamos y difundimos el folclore chileno en cada escenario. Contrátanos para tu evento.">
+  <meta property="og:image" content="Logo_almas.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="Logo_almas.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <title>Agrupación Folclórica</title>
   <style>
     body {
@@ -12,23 +21,102 @@
       background: #fafafa;
       color: #333;
     }
+    h1, h2 {
+      font-family: "Playfair Display", serif;
+    }
     header {
       background: #a83232; /* rojo folclórico */
       color: #fff;
-      padding: 1rem 2rem;
-      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    nav {
-      margin-top: 10px;
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 2rem;
+      max-width: 1200px;
+      margin: auto;
     }
-    nav a {
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-logo {
+      height: 48px;
+      width: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .brand h1 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+    nav.site-nav {
+      display: flex;
+      align-items: center;
+    }
+    nav.site-nav a {
       color: #fff;
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
+      white-space: nowrap;
     }
-    nav a:hover {
+    nav.site-nav a:hover {
       text-decoration: underline;
+    }
+    @media (max-width: 720px) {
+      .nav-toggle {
+        display: block;
+      }
+      nav.site-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: #a83232;
+        padding: 10px 0 16px;
+      }
+      nav.site-nav.open {
+        display: flex;
+      }
+      nav.site-nav a {
+        margin: 10px 0;
+      }
+      .header-inner {
+        flex-wrap: wrap;
+      }
+    }
+    .whatsapp-float {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      background: #25d366;
+      color: #fff;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      text-decoration: none;
+      z-index: 200;
+      transition: transform 0.2s ease;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.08);
     }
     section {
       padding: 3rem 2rem;
@@ -69,6 +157,129 @@
     .contacto button:hover {
       background: #7a2424;
     }
+    .show-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+      max-width: 900px;
+      margin: auto;
+    }
+    .show-item {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 1.8rem 1.5rem;
+      width: 240px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .show-item i {
+      font-size: 2rem;
+      color: #a83232;
+      margin-bottom: 0.6rem;
+    }
+    .show-item h3 {
+      margin: 0.4rem 0;
+      font-size: 1.1rem;
+      color: #333;
+    }
+    .show-item p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .planes-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      justify-content: center;
+      max-width: 1000px;
+      margin: auto;
+      align-items: stretch;
+    }
+    .plan-card {
+      position: relative;
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 2rem 1.6rem;
+      width: 260px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+    }
+    .plan-card.featured {
+      border: 2px solid #a83232;
+      transform: scale(1.04);
+    }
+    .plan-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #a83232;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 3px 12px;
+      border-radius: 12px;
+    }
+    .plan-card h3 {
+      margin: 0.3rem 0 0.1rem;
+      color: #a83232;
+      font-size: 1.3rem;
+    }
+    .plan-subtitle {
+      margin: 0 0 1rem;
+      font-weight: bold;
+      color: #333;
+    }
+    .plan-card ul {
+      text-align: left;
+      margin: 0 0 1.4rem;
+      padding-left: 1.2rem;
+      color: #555;
+      font-size: 0.92rem;
+      flex-grow: 1;
+    }
+    .plan-card li {
+      margin-bottom: 6px;
+    }
+    .plan-cta {
+      display: inline-block;
+      background: #25d366;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .plan-cta:hover {
+      background: #1ea855;
+    }
+    .clientes-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      justify-content: center;
+      align-items: center;
+      max-width: 900px;
+      margin: auto;
+    }
+    .clientes-grid img {
+      max-height: 90px;
+      max-width: 220px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.75;
+      transition: filter 0.3s, opacity 0.3s;
+    }
+    .clientes-grid img:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
     footer {
       background: #222;
       color: #fff;
@@ -98,29 +309,31 @@
   </style>
 </head>
 <body>
-  <header style="display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; background:#a83232; color:#fff;">
-  <!-- Nombre agrupación -->
-  <h1 style="margin:0;">Almas de condor</h1>
-  
-  <!-- Logo a la derecha -->
-
-    <nav>
-      <a href="#sobre">Sobre Nosotros</a>
-      <a href="#elenco">Nuestros Bailarines</a>
-      <a href="#videos">Presentaciones</a>
-      <a href="#contacto">Contáctenos</a>
-      
-    </nav>
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <img src="Logo_almas.png" alt="Logo Almas de Cóndor" class="brand-logo">
+        <h1>Almas de Cóndor</h1>
+      </div>
+      <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
+      <nav class="site-nav">
+        <a href="#sobre">Sobre Nosotros</a>
+        <a href="#elenco">Nuestros Bailarines</a>
+        <a href="#show">Nuestro Show</a>
+        <a href="#planes">Planes</a>
+        <a href="#videos">Presentaciones</a>
+        <a href="#clientes">Clientes</a>
+        <a href="#contacto">Contáctenos</a>
+      </nav>
+    </div>
   </header>
 
+  <a class="whatsapp-float" href="https://wa.me/56922309218?text=Hola%2C%20quiero%20contratar%20a%20Almas%20de%20C%C3%B3ndor%20para%20un%20evento" target="_blank" aria-label="Escríbenos por WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
   <section id="sobre">
-
-    <!-- Logo encima de "Sobre Nosotros" -->
-<section id="logo" style="text-align:center; margin-top:-5rem;">
-  <img src="Logo_almas.png" alt="Logo Agrupación" style="max-width:200px; height:auto;">
-</section>
-
-    <h2 style="text-align:center; margin-top:-1rem;"> Sobre Nosotros</h2>
+    <h2 style="text-align:center;">Sobre Nosotros</h2>
     <p style="text-align: center;">
       Somos la Agrupación Folclórica Almas de condor, un conjunto dedicado con pasión a preservar y difundir las ricas tradiciones de nuestra tierra.
 
@@ -137,19 +350,19 @@
     </p>
   </section>
 
-<section id="elenco" class="elenco" style="text-align:center; margin-top:-5rem;">
+<section id="elenco" class="elenco" style="text-align:center;">
   <h2>Nuestros Bailarines</h2>
 
   <div class="carousel">
     <div class="carousel-track">
       <div class="carousel-item">
-        <img src="mujeres.png" alt="Mujeres" style="max-width:700px; height:auto;">
+        <img src="fotos%20bailarines/mujeres.png" alt="Mujeres" style="max-width:700px; height:auto;">
       </div>
       <div class="carousel-item">
-        <img src="hombres.png" alt="Hombres" style="max-width:700px; height:auto;">
+        <img src="fotos%20bailarines/hombres.png" alt="Hombres" style="max-width:700px; height:auto;">
       </div>
       <div class="carousel-item">
-        <img src="todos.png" alt="Todos" style="max-width:700px; height:auto;">
+        <img src="fotos%20bailarines/todos.png" alt="Todos" style="max-width:700px; height:auto;">
       </div>
     </div>
 
@@ -290,10 +503,89 @@ function resetAutoSlide() {
 
 // iniciar autoplay
 startAutoSlide();
+
+// menú hamburguesa (mobile)
+const navToggle = document.querySelector('.nav-toggle');
+const siteNav = document.querySelector('.site-nav');
+
+navToggle.addEventListener('click', () => {
+  const isOpen = siteNav.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', isOpen);
+});
+
+siteNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    siteNav.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
 </script>
 
 
-  <section id="videos" class="videos" style="text-align:center; margin-top:-3rem;">
+  <section id="show" class="show" style="text-align:center;">
+    <h2>Nuestro Show</h2>
+    <p style="max-width:700px; margin:0 auto 2rem;">
+      Nuestro espectáculo contempla un cuadro de centro donde se desempeñan diferentes coreografías, además de instancias de baile con el público y cuecas con el público, para una experiencia participativa en cada evento.
+    </p>
+    <div class="show-grid">
+      <div class="show-item">
+        <i class="fa-solid fa-people-group"></i>
+        <h3>Cuadro de Centro</h3>
+        <p>Diferentes coreografías en escena</p>
+      </div>
+      <div class="show-item">
+        <i class="fa-solid fa-hands-holding-circle"></i>
+        <h3>Baile con el Público</h3>
+        <p>Instancia participativa para animar a los asistentes</p>
+      </div>
+      <div class="show-item">
+        <i class="fa-solid fa-music"></i>
+        <h3>Cuecas con el Público</h3>
+        <p>Cierre bailable junto a los invitados</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="planes" class="planes" style="text-align:center;">
+    <h2>Planes</h2>
+    <p style="max-width:700px; margin:0 auto 2rem;">Elige la propuesta que mejor se ajuste a tu evento. Escríbenos por WhatsApp para cotizar.</p>
+    <div class="planes-grid">
+      <div class="plan-card">
+        <h3>Económica</h3>
+        <p class="plan-subtitle">Pie de Cueca</p>
+        <ul>
+          <li>Una pareja de bailarines</li>
+          <li>Interpretación de una cueca tradicional</li>
+          <li>Ideal para actos breves o momentos protocolares</li>
+        </ul>
+        <a class="plan-cta" href="https://wa.me/56922309218?text=Hola%2C%20quiero%20cotizar%20el%20plan%20Econ%C3%B3mico%20(Pie%20de%20Cueca)" target="_blank">Cotizar por WhatsApp</a>
+      </div>
+      <div class="plan-card featured">
+        <span class="plan-badge">Más elegido</span>
+        <h3>Mediana</h3>
+        <p class="plan-subtitle">Presentación</p>
+        <ul>
+          <li>Grupo completo de bailarines</li>
+          <li>Cuadro de centro con coreografías variadas</li>
+          <li>Ideal para eventos y celebraciones</li>
+        </ul>
+        <a class="plan-cta" href="https://wa.me/56922309218?text=Hola%2C%20quiero%20cotizar%20el%20plan%20Mediana%20(Presentaci%C3%B3n)" target="_blank">Cotizar por WhatsApp</a>
+      </div>
+      <div class="plan-card">
+        <h3>Premium</h3>
+        <p class="plan-subtitle">Show Completo</p>
+        <ul>
+          <li>Cuadro de centro con coreografías variadas</li>
+          <li>Baile con el público</li>
+          <li>Cuecas con el público</li>
+          <li>La experiencia completa para animar tu evento</li>
+        </ul>
+        <a class="plan-cta" href="https://wa.me/56922309218?text=Hola%2C%20quiero%20cotizar%20el%20plan%20Premium%20(Show%20Completo)" target="_blank">Cotizar por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="videos" class="videos" style="text-align:center;">
     <h2>Presentaciones</h2>
     <div style="text-align:center;">
       <!-- Ejemplo con videos de YouTube -->
@@ -301,7 +593,16 @@ startAutoSlide();
     </div>
   </section>
 
-<section id="contacto" class="contacto" style="text-align:center; margin-top:-3rem;">
+  <section id="clientes" class="clientes" style="text-align:center;">
+    <h2>Clientes Satisfechos</h2>
+    <p style="max-width:700px; margin:0 auto 2rem;">Empresas e instituciones que han confiado en nosotros para animar sus eventos.</p>
+    <div class="clientes-grid">
+      <img src="fotos%20clientes/03-logo-co-ol-Grande1.png" alt="CO-OL Construcciones Modulares">
+      <img src="fotos%20clientes/company_6349be64830525648d18efd2.png" alt="Empresas Reutter">
+    </div>
+  </section>
+
+<section id="contacto" class="contacto" style="text-align:center;">
   <h2>Contáctenos</h2>
   <form action="https://formspree.io/f/xwprojll" method="POST">
     <input type="text" name="nombre" placeholder="Nombre" required>
